@@ -1,7 +1,11 @@
 package by.example.weatherservice.entity;
 
+import javax.validation.constraints.NotBlank;
+
 public class Location {
+    @NotBlank(message = "Field cant be empty")
     private String country;
+    @NotBlank(message = "Field cant be empty")
     private String city;
 
     public Location() {

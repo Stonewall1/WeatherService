@@ -1,9 +1,15 @@
 package by.example.weatherservice.entity;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 public class User {
     private long id;
     private String token;
+    @NotBlank(message = "Field cant be empty")
     private String username;
+    @NotBlank(message = "Field cant be empty")
+    @Size(min = 3, message = "Minimum size is 3")
     private String password;
     private Location location;
 
