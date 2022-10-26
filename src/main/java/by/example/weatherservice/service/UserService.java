@@ -17,14 +17,14 @@ public class UserService {
         this.userDao = userDao;
     }
 
-    public User save(User user) throws UserAlreadyExistsException {
+    public Optional<User> save(User user) throws UserAlreadyExistsException {
         for (User u : findAll()) {
             if (u.getUsername().equals(user.getUsername())) {
                 throw new UserAlreadyExistsException();
             }
         }
         userDao.save(user);
-        return user;
+        return Optional.of(user);
     }
 
     public Optional<User> findById(Long id) {

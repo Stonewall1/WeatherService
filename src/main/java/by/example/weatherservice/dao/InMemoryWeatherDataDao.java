@@ -14,10 +14,10 @@ public class InMemoryWeatherDataDao implements WeatherDataDao<WeatherData , Long
     private final List<WeatherData> weatherDataList = new ArrayList<>();
     private final AtomicLong idGenerator = new AtomicLong();
     @Override
-    public WeatherData save(WeatherData weatherData) {
+    public Optional<WeatherData> save(WeatherData weatherData) {
        weatherData.setId(idGenerator.incrementAndGet());
        weatherDataList.add(weatherData);
-       return weatherData;
+       return Optional.of(weatherData);
     }
 
     @Override

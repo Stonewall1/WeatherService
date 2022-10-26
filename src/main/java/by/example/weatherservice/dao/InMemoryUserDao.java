@@ -15,11 +15,11 @@ public class InMemoryUserDao implements UserDao<User, Long> {
     private final AtomicLong idGenerator = new AtomicLong(0);
 
     @Override
-    public User save(User user) {
+    public Optional<User> save(User user) {
         user.setId(idGenerator.incrementAndGet());
         user.setToken(UUID.randomUUID().toString());
         users.add(user);
-        return user;
+        return Optional.of(user);
     }
 
     @Override

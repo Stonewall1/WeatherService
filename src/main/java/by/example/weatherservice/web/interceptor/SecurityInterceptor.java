@@ -21,7 +21,8 @@ public class SecurityInterceptor implements HandlerInterceptor {
         String token = request.getHeader("X-Token");
         if (inMemoryUserDao.findByToken(token).isPresent()) {
             return true;
+        } else {
+            throw new NoTokenFoundException();
         }
-        throw new NoTokenFoundException();
     }
 }

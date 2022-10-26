@@ -20,7 +20,7 @@ public class WeatherService {
         this.weatherDataDao = weatherDataDao;
     }
 
-    public WeatherData save(WeatherData weatherData) {
+    public Optional<WeatherData> save(WeatherData weatherData) {
         return weatherDataDao.save(weatherData);
     }
 

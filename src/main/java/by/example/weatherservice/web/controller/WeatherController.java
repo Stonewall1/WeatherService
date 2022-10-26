@@ -18,10 +18,9 @@ public class WeatherController {
         this.weatherService = weatherService;
     }
 
-
-    @GetMapping("/current")
-    public ResponseEntity<?> currentWeatherByUserLocation(@Valid @RequestBody User user){
+    @GetMapping("/currentWeather")
+    public ResponseEntity<?> currentWeatherByUserLocation(@Valid @RequestBody User user) {
         WeatherData weatherDataByUserLocation = weatherService.findWeatherDataByUserLocation(user);
-        return new ResponseEntity<>(weatherDataByUserLocation , HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(weatherDataByUserLocation, HttpStatus.ACCEPTED);
     }
 }
