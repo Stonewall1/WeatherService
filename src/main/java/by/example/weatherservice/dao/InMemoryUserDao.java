@@ -1,7 +1,7 @@
 package by.example.weatherservice.dao;
 
 import by.example.weatherservice.entity.User;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicLong;
 
-@Component("InMemoryUserDao")
+@Repository
 public class InMemoryUserDao implements UserDao<User, Long> {
     private final List<User> users = new ArrayList<>();
     private final AtomicLong idGenerator = new AtomicLong(0);

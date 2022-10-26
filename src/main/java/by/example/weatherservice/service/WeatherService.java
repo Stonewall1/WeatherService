@@ -13,7 +13,7 @@ import java.util.Random;
 
 @Service
 public class WeatherService {
-    @Qualifier("InMemoryWeatherDataDao")
+    @Qualifier("inMemoryWeatherDataDao")
     private final WeatherDataDao<WeatherData, Long> weatherDataDao;
 
     public WeatherService(WeatherDataDao<WeatherData, Long> weatherDataDao) {

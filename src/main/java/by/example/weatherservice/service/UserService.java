@@ -10,14 +10,19 @@ import java.util.Optional;
 
 @Service
 public class UserService {
-    @Qualifier("InMemoryUserDao")
+    @Qualifier("inMemoryUserDao")
     private final UserDao<User, Long> userDao;
 
     public UserService(UserDao<User, Long> userDao) {
         this.userDao = userDao;
     }
 
-    public User save(User user) {
+    public User save(User user) throws UserAlreadyExistsException {
+        for (User u : findAll()) {
+            if (u.getUsername().equals(user.getUsername())) {
+                throw new UserAlreadyExistsException();
+            }
+        }
         userDao.save(user);
         return user;
     }

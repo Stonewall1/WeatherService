@@ -1,14 +1,14 @@
 package by.example.weatherservice.dao;
 
 import by.example.weatherservice.entity.WeatherData;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
-@Component("InMemoryWeatherDataDao")
+@Repository
 public class InMemoryWeatherDataDao implements WeatherDataDao<WeatherData , Long> {
 
     private final List<WeatherData> weatherDataList = new ArrayList<>();

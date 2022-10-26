@@ -1,4 +1,4 @@
-package by.example.weatherservice.controller;
+package by.example.weatherservice.web.controller;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
