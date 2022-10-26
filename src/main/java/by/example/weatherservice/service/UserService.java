@@ -1,5 +1,6 @@
 package by.example.weatherservice.service;
 
+import by.example.weatherservice.UserAlreadyExistsException;
 import by.example.weatherservice.dao.UserDao;
 import by.example.weatherservice.entity.User;
 import org.springframework.beans.factory.annotation.Qualifier;

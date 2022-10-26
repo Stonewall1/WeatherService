@@ -1,7 +1,7 @@
 package by.example.weatherservice.web.interceptor;
 
 import by.example.weatherservice.dao.InMemoryUserDao;
-import by.example.weatherservice.service.NoTokenFoundException;
+import by.example.weatherservice.NoTokenFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 

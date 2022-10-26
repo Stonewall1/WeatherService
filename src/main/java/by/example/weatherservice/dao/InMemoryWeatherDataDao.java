@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class InMemoryWeatherDataDao implements WeatherDataDao<WeatherData , Long> {
 
     private final List<WeatherData> weatherDataList = new ArrayList<>();
-    private final AtomicLong idGenerator = new AtomicLong();
+    private final AtomicLong idGenerator = new AtomicLong(0);
     @Override
     public Optional<WeatherData> save(WeatherData weatherData) {
        weatherData.setId(idGenerator.incrementAndGet());

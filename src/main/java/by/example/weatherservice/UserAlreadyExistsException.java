@@ -1,4 +1,4 @@
-package by.example.weatherservice.service;
+package by.example.weatherservice;
 
 public class UserAlreadyExistsException extends Exception {
     @Override

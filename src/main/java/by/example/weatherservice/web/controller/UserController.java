@@ -1,7 +1,7 @@
 package by.example.weatherservice.web.controller;
 
 import by.example.weatherservice.entity.User;
-import by.example.weatherservice.service.UserAlreadyExistsException;
+import by.example.weatherservice.UserAlreadyExistsException;
 import by.example.weatherservice.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
