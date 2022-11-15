@@ -1,9 +1,8 @@
 package by.example.weatherservice.service;
 
-import by.example.weatherservice.UserAlreadyExistsException;
+import by.example.weatherservice.exceptions.UserAlreadyExistsException;
 import by.example.weatherservice.dao.UserDao;
 import by.example.weatherservice.entity.User;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,14 +10,13 @@ import java.util.Optional;
 
 @Service
 public class UserService {
-    @Qualifier("inMemoryUserDao")
     private final UserDao<User, Long> userDao;
 
     public UserService(UserDao<User, Long> userDao) {
         this.userDao = userDao;
     }
 
-    public Optional<User> save(User user) throws UserAlreadyExistsException {
+    public Optional<User> save(User user) {
         for (User u : findAll()) {
             if (u.getUsername().equals(user.getUsername())) {
                 throw new UserAlreadyExistsException();

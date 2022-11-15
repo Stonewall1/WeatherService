@@ -1,7 +1,7 @@
 package by.example.weatherservice.web.controller;
 
 import by.example.weatherservice.entity.User;
-import by.example.weatherservice.UserAlreadyExistsException;
+import by.example.weatherservice.exceptions.UserAlreadyExistsException;
 import by.example.weatherservice.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,11 +23,7 @@ public class UserController {
 
     @PostMapping("/save")
     public ResponseEntity<?> save(@Valid @RequestBody User user) {
-        try {
-            userService.save(user);
-        } catch (UserAlreadyExistsException e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        }
+        userService.save(user);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 

@@ -23,4 +23,9 @@ public class ErrorController extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(map, HttpStatus.BAD_REQUEST);
     }
 
+    @Override
+    protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers, HttpStatus status, WebRequest request) {
+        return super.handleExceptionInternal(ex, body, headers, status, request);
+    }
+
 }

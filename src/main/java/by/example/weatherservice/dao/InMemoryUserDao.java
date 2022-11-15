@@ -1,6 +1,7 @@
 package by.example.weatherservice.dao;
 
 import by.example.weatherservice.entity.User;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Repository
+@Primary
 public class InMemoryUserDao implements UserDao<User, Long> {
     private final List<User> users = new ArrayList<>();
     private final AtomicLong idGenerator = new AtomicLong(0);
@@ -24,7 +26,7 @@ public class InMemoryUserDao implements UserDao<User, Long> {
 
     @Override
     public Optional<User> findById(Long id) {
-       return users.stream().filter(user -> user.getId() == id).findFirst();
+        return users.stream().filter(user -> user.getId() == id).findFirst();
     }
 
     @Override

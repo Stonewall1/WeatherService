@@ -5,7 +5,6 @@ import by.example.weatherservice.dto.WeatherDataDto;
 import by.example.weatherservice.entity.Location;
 import by.example.weatherservice.entity.User;
 import by.example.weatherservice.entity.WeatherData;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -16,7 +15,7 @@ import java.util.Random;
 
 @Service
 public class WeatherService {
-    @Qualifier("inMemoryWeatherDataDao")
+
     private final WeatherDataDao<WeatherData, Long> weatherDataDao;
 
     public WeatherService(WeatherDataDao<WeatherData, Long> weatherDataDao) {
